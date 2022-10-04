@@ -22,50 +22,6 @@ int main()
     return 0;
 }
 
-// Function to create a list from user input
-void createNodeList(int n)
-{
-    struct node *fnNode, *temp;
-    int userData;
-    startingNode = (struct node *)malloc(sizeof(struct node));
-
-    if(startingNode == NULL) //check whether the fnnode is NULL and if so no memory allocation
-    {
-        printf(" Memory can not be allocated.");
-    }
-    else
-    {
-        // reads data for the node through keyboard
-
-        printf(" Input data for node 1 : ");
-        scanf("%d", &userData);
-        startingNode->data = userData;      
-        startingNode->nextPointer = NULL; // links the address field to NULL
-        temp = startingNode;
-        // Creating n nodes and adding to linked list
-        for(int i=2; i<=n; i++)
-        {
-            fnNode = (struct node *)malloc(sizeof(struct node));
-            if(fnNode == NULL)
-            {
-                printf(" Memory can not be allocated.");
-                break;
-            }
-            else
-            {
-                printf(" Input data for node %d : ", i);
-                scanf(" %d", &userData);
-
-                fnNode->data = userData;      // links the num field of fnNode with num
-                fnNode->nextPointer = NULL; // links the address field of fnNode with NULL
-
-                temp->nextPointer = fnNode; // links previous node i.e. tmp to the fnNode
-                temp = temp->nextPointer;
-            }
-        }  
-    }
-}
-
 // Create node and add to end of list
 void createNode(int dataIn)
 {
